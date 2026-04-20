@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Washington DC Walking Guide</title>
+
+<style>
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto;
+margin:0;
+background:#f5f5f7;
+color:#1c1c1e;
+}
+
+header{
+padding:20px;
+background:#0b3d91;
+color:white;
+text-align:center;
+}
+
+nav{
+display:flex;
+overflow-x:auto;
+background:white;
+border-bottom:1px solid #ddd;
+}
+
+nav button{
+flex:1;
+padding:14px;
+border:none;
+background:white;
+font-weight:600;
+}
+
+nav button.active{
+color:#0b3d91;
+border-bottom:3px solid #0b3d91;
+}
+
+section{
+display:none;
+padding:20px;
+}
+
+section.active{
+display:block;
+}
+
+.card{
+background:white;
+border-radius:14px;
+padding:16px;
+margin-bottom:16px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.place{
+font-weight:600;
+margin-bottom:6px;
+}
+
+a{
+display:block;
+margin-top:6px;
+color:#007aff;
+text-decoration:none;
+}
+
+.distance{
+font-size:14px;
+color:#666;
+}
+
+@media (prefers-color-scheme: dark){
+
+body{
+background:#000;
+color:#eee;
+}
+
+.card{
+background:#1c1c1e;
+}
+
+nav{
+background:#1c1c1e;
+}
+
+nav button{
+background:#1c1c1e;
+color:white;
+}
+
+header{
+background:#111;
+}
+
+}
+
+</style>
+
+<script>
+
+function showTab(tab){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+document.getElementById(tab).classList.add("active");
+document.getElementById("btn-"+tab).classList.add("active");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>Washington DC Trip</h1>
+<p>19–22 May</p>
+</header>
+
+<nav>
+<button id="btn-arrival" class="active" onclick="showTab('arrival')">Arrival</button>
+<button id="btn-day1" onclick="showTab('day1')">Monuments</button>
+<button id="btn-day2" onclick="showTab('day2')">Museums</button>
+<button id="btn-day3" onclick="showTab('day3')">Georgetown</button>
+</nav>
+
+<section id="arrival" class="active">
+
+<div class="card">
+<div class="place">Airport → Hotel</div>
+
+<p>Metro Silver Line from Dulles toward Largo.</p>
+
+<ol>
+<li>Follow airport signs to Metro</li>
+<li>Take <b>Silver Line</b></li>
+<li>Exit <b>McPherson Square</b></li>
+<li>Walk 10 minutes to hotel</li>
+</ol>
+
+<a href="https://maps.apple.com/?saddr=Dulles+International+Airport&daddr=Washington+Plaza+Hotel+Washington+DC&dirflg=r">
+Open transit route
+</a>
+
+<p class="distance">~50 minutes</p>
+</div>
+
+<div class="card">
+<div class="place">Return to Airport (Friday)</div>
+
+<p>Leave hotel ~07:30</p>
+
+<a href="https://maps.apple.com/?saddr=Washington+Plaza+Hotel+Washington+DC&daddr=Dulles+International+Airport&dirflg=r">
+Open return route
+</a>
+
+</div>
+
+</section>
+
+<section id="day1">
+
+<div class="card">
+<div class="place">Hotel → Washington Monument</div>
+
+<p class="distance">1.5 miles • 30 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=Washington+Plaza+Hotel+Washington+DC&daddr=Washington+Monument&dirflg=w">
+Start walk
+</a>
+
+</div>
+
+<div class="card">
+<div class="place">Washington Monument → WWII Memorial</div>
+
+<p class="distance">5 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=Washington+Monument&daddr=World+War+II+Memorial&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">WWII Memorial → Lincoln Memorial</div>
+
+<p class="distance">12 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=World+War+II+Memorial&daddr=Lincoln+Memorial&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">Lincoln → Vietnam Memorial</div>
+
+<p class="distance">4 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=Lincoln+Memorial&daddr=Vietnam+Veterans+Memorial&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">Vietnam → Korean War Memorial</div>
+
+<p class="distance">5 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=Vietnam+Veterans+Memorial&daddr=Korean+War+Veterans+Memorial&dirflg=w">
+Start walk
+</a>
+</div>
+
+</section>
+
+<section id="day2">
+
+<div class="card">
+<div class="place">Natural History Museum</div>
+
+<p>Hope Diamond • Dinosaurs • Ocean Hall</p>
+
+<a href="https://maps.apple.com/?q=National+Museum+of+Natural+History+Washington+DC">
+Navigate
+</a>
+</div>
+
+<div class="card">
+<div class="place">Natural History → American History</div>
+
+<p class="distance">4 min walk across the Mall</p>
+
+<a href="https://maps.apple.com/?saddr=National+Museum+of+Natural+History&daddr=National+Museum+of+American+History&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">American History → Air & Space</div>
+
+<p class="distance">15 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=National+Museum+of+American+History&daddr=National+Air+and+Space+Museum&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">Air & Space → Capitol</div>
+
+<p class="distance">10 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=National+Air+and+Space+Museum&daddr=United+States+Capitol&dirflg=w">
+Start walk
+</a>
+</div>
+
+</section>
+
+<section id="day3">
+
+<div class="card">
+<div class="place">Hotel → White House</div>
+
+<p class="distance">18 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=Washington+Plaza+Hotel+Washington+DC&daddr=White+House&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">White House → Georgetown Waterfront</div>
+
+<p class="distance">1.7 miles • 35 min walk</p>
+
+<a href="https://maps.apple.com/?saddr=White+House&daddr=Georgetown+Waterfront+Park&dirflg=w">
+Start walk
+</a>
+</div>
+
+<div class="card">
+<div class="place">Coffee Stop</div>
+
+<p>Baked & Wired – excellent coffee & cake</p>
+
+<a href="https://maps.apple.com/?q=Baked+and+Wired+Washington+DC">
+Navigate
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
