@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,23 +8,18 @@
 <meta name="theme-color" content="#1B2A4A">
 <title>Washington DC — May 2026</title>
 <style>
-  :root {
-    --navy:#1B2A4A; --teal:#2E7D8C; --teal-light:#EAF4F6; --mid:#B0CDD4;
-    --text:#2c2c2c; --grey:#555; --light:#f7f9fa; --white:#fff;
-    --green:#2d7a4a; --amber:#b85c00;
-  }
+  :root{--navy:#1B2A4A;--teal:#2E7D8C;--teal-light:#EAF4F6;--mid:#B0CDD4;
+    --text:#2c2c2c;--grey:#555;--light:#f7f9fa;--white:#fff;--green:#2d7a4a;--amber:#b85c00}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
     background:var(--light);color:var(--text);font-size:15px;line-height:1.5;
     max-width:540px;margin:0 auto;padding-bottom:32px}
-
   .header{background:var(--navy);color:white;padding:18px 16px 14px;
     position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .header h1{font-size:19px;font-weight:700;letter-spacing:-.3px}
   .header p{font-size:12px;color:var(--mid);margin-top:3px}
   .offline-badge{display:inline-block;background:var(--teal);color:white;font-size:10px;
     font-weight:600;padding:2px 8px;border-radius:20px;margin-top:6px}
-
   .tabs{display:flex;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);
     overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .tabs::-webkit-scrollbar{display:none}
@@ -31,37 +27,33 @@
     font-weight:600;padding:10px 13px;cursor:pointer;white-space:nowrap;
     border-bottom:3px solid transparent;transition:all .15s}
   .tab-btn.active{color:white;border-bottom-color:var(--teal)}
-
   .section{display:none;padding:0 0 16px}
   .section.active{display:block}
-
   .day-header{background:var(--teal);color:white;padding:9px 16px;font-size:12.5px;
     font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:8px}
   .day-header span{font-weight:400;opacity:.85;margin-left:6px;font-size:12px;text-transform:none}
-
   .card{background:var(--white);margin:8px 12px;border-radius:10px;overflow:hidden;
     box-shadow:0 1px 4px rgba(0,0,0,.09)}
   .card-header{display:flex;align-items:center;gap:10px;padding:12px 14px 8px;
     border-bottom:1px solid #f0f0f0}
   .card-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;
     justify-content:center;font-size:17px;flex-shrink:0}
-  .icon-food{background:#fff3e0} .icon-museum{background:#e8f0fe}
-  .icon-walk{background:#e8f5e9} .icon-hotel{background:#fce4ec}
-  .icon-metro{background:#ede7f6} .icon-flight{background:#e0f7fa}
-  .icon-tip{background:#fffde7} .icon-train{background:#f3e5f5}
-
+  .icon-food{background:#fff3e0}.icon-museum{background:#e8f0fe}
+  .icon-walk{background:#e8f5e9}.icon-hotel{background:#fce4ec}
+  .icon-metro{background:#ede7f6}.icon-flight{background:#e0f7fa}
+  .icon-tip{background:#fffde7}.icon-train{background:#f3e5f5}
+  .icon-alt{background:#f1f8e9}
   .card-title{font-size:15px;font-weight:700;color:var(--navy)}
   .card-time{font-size:11px;color:var(--teal);font-weight:600;margin-top:1px}
   .card-body{padding:8px 14px 12px}
   .card-body p{font-size:13.5px;color:var(--grey);line-height:1.55}
   .card-body p+p{margin-top:5px}
-
   .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-  .chip{display:inline-flex;align-items:center;gap:4px;background:var(--teal-light);
+  .chip{display:inline-flex;align-items:center;background:var(--teal-light);
     color:var(--teal);font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px}
   .chip.green{background:#e8f5e9;color:var(--green)}
   .chip.amber{background:#fff3e0;color:var(--amber)}
-
+  .chip.grey{background:#f0f0f0;color:#666}
   .steps{padding:8px 14px 12px}
   .step{display:flex;gap:12px;padding:6px 0;border-left:2px solid var(--mid);
     margin-left:10px;padding-left:14px;position:relative}
@@ -72,25 +64,22 @@
   .step-title{font-size:13.5px;font-weight:600;color:var(--navy)}
   .step-note{font-size:12px;color:var(--grey);margin-top:1px}
   .step-time{font-size:11px;color:var(--teal);font-weight:700;white-space:nowrap;padding-top:2px}
-
   .btn-row{display:flex;gap:8px;flex-wrap:wrap;padding:4px 14px 12px}
   .btn{display:inline-flex;align-items:center;gap:5px;padding:9px 14px;border-radius:8px;
-    font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.1px}
+    font-size:13px;font-weight:700;text-decoration:none}
   .btn-teal{background:var(--teal);color:white}
   .btn-maps{background:#1c1c1e;color:white}
   .btn-navy{background:var(--navy);color:white}
-
+  .btn-grey{background:#e0e0e0;color:#333}
   .ftable{width:100%;border-collapse:collapse;margin-top:6px;font-size:12.5px}
   .ftable th{background:var(--navy);color:white;padding:7px 8px;text-align:left;font-size:11px}
   .ftable td{padding:7px 8px;border-bottom:1px solid #eee;color:var(--text)}
   .ftable tr:nth-child(even) td{background:var(--teal-light)}
   .fnum{font-weight:700;color:var(--teal)}
-
   .hotel-box{background:var(--navy);color:white;margin:8px 12px;border-radius:10px;padding:14px 16px}
   .hotel-box h3{font-size:15px;font-weight:700;margin-bottom:4px}
   .hotel-box p{font-size:13px;color:var(--mid);line-height:1.5}
   .hotel-box a{color:var(--mid)}
-
   .checklist{padding:6px 14px 10px}
   .check-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;
     border-bottom:1px solid #f2f2f2;font-size:13.5px}
@@ -98,22 +87,23 @@
   .check-item input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--teal)}
   .check-item label{color:var(--grey);line-height:1.45;cursor:pointer}
   .check-item label strong{color:var(--navy)}
-
   .em-card{background:#fff5f5;border-left:4px solid #e53935;margin:8px 12px;
     border-radius:0 8px 8px 0;padding:12px 14px}
   .em-card h4{color:#c62828;font-size:13px;margin-bottom:6px}
   .em-row{font-size:13px;color:var(--text);padding:3px 0}
   .em-row a{color:var(--teal);font-weight:600;text-decoration:none}
-
   .intro{background:var(--teal-light);border-left:4px solid var(--teal);margin:8px 12px;
     border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:var(--grey);line-height:1.5}
+  .alt-box{background:#f9f9f9;border-left:3px solid #ccc;margin:0 14px 10px;
+    border-radius:0 6px 6px 0;padding:8px 12px;font-size:13px;color:var(--grey)}
+  .alt-box strong{color:var(--navy)}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🇺🇸 Washington DC & Atlanta — May 2026</h1>
-  <p>Gregg Hudson  ·  Tue 19 – Thu 28 May</p>
+  <h1>🇺🇸 Washington DC — May 2026</h1>
+  <p>Gregg Hudson  ·  Tue 19 – Fri 22 May</p>
   <span class="offline-badge">✓ Works offline — save this page</span>
 </div>
 
@@ -123,11 +113,12 @@
   <button class="tab-btn" onclick="show('tue')">Tue 19</button>
   <button class="tab-btn" onclick="show('wed')">Wed 20</button>
   <button class="tab-btn" onclick="show('thu')">Thu 21</button>
-  <button class="tab-btn" onclick="show('fri')">Fri 23</button>
+  <button class="tab-btn" onclick="show('fri')">Fri 22</button>
   <button class="tab-btn" onclick="show('tips')">💡 Tips</button>
 </div>
 
-<!-- ══════════════════════ TRAVEL ══════════════════════ -->
+<!-- ══════════ TRAVEL ══════════ -->
+
 <div id="travel" class="section active">
 
   <div class="day-header">Outbound Rail · Tuesday 19 May</div>
@@ -136,34 +127,34 @@
       <div class="card-icon icon-train">🚂</div>
       <div>
         <div class="card-title">Shifnal → Birmingham International</div>
-        <div class="card-time">Depart Shifnal ~05:50 · Arrive BHX 06:55 · Check-in by 07:00</div>
+        <div class="card-time">Depart Shifnal ~05:50 · Arrive BHX ~06:55 · Check-in 07:00</div>
       </div>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-main">
           <div class="step-title">Taxi: Shifnal → Wolverhampton</div>
-          <div class="step-note">Recommended for early start with luggage. Train takes ~15 min if one is running.</div>
+          <div class="step-note">Recommended for early start with luggage · ~20 min</div>
         </div>
         <div class="step-time">~05:50</div>
       </div>
       <div class="step">
         <div class="step-main">
           <div class="step-title">Train: Wolverhampton → Birmingham International</div>
-          <div class="step-note">Depart 06:14 · West Midlands / CrossCountry direct · ~40 min · Verify on National Rail closer to date</div>
+          <div class="step-note">Depart 06:14 · West Midlands / CrossCountry direct · ~40 min · Verify on National Rail</div>
         </div>
         <div class="step-time">06:14</div>
       </div>
       <div class="step">
         <div class="step-main">
           <div class="step-title">Arrive Birmingham International</div>
-          <div class="step-note">Terminal 1 · KLM check-in desk · Check in by 07:00</div>
+          <div class="step-note">Terminal 1 · KLM check-in · Check in by 07:00</div>
         </div>
         <div class="step-time">~06:55</div>
       </div>
     </div>
     <div class="btn-row">
-      <a class="btn btn-teal" href="https://www.nationalrail.co.uk/journey-planner/?type=single&origin=SFN&destination=BHI&leavingType=departing&leavingDate=190526&leavingHour=05&leavingMin=50" target="_blank">🚆 National Rail Journey Planner</a>
+      <a class="btn btn-teal" href="https://www.nationalrail.co.uk/journey-planner/" target="_blank">🚆 National Rail Planner</a>
     </div>
   </div>
 
@@ -195,7 +186,7 @@
       <div class="card-icon icon-metro">🚇</div>
       <div>
         <div class="card-title">Dulles → Washington Plaza Hotel</div>
-        <div class="card-time">~15:35 arrival · ~55 min total journey</div>
+        <div class="card-time">Arrive ~15:35 EDT · ~55 min to hotel</div>
       </div>
     </div>
     <div class="steps">
@@ -209,7 +200,7 @@
       <div class="step">
         <div class="step-main">
           <div class="step-title">Silver Line → Metro Center</div>
-          <div class="step-note">Direction: Largo Town Center · Add SmarTrip to Apple/Google Wallet before travel · ~$6–7</div>
+          <div class="step-note">Direction: Largo Town Center · SmarTrip on Apple/Google Wallet · ~$6–7</div>
         </div>
         <div class="step-time">~40 min</div>
       </div>
@@ -223,7 +214,7 @@
       <div class="step">
         <div class="step-main">
           <div class="step-title">Walk to Washington Plaza Hotel</div>
-          <div class="step-note">Exit north on 14th St NW, right at Thomas Circle · ~5 min</div>
+          <div class="step-note">North on 14th St NW, right at Thomas Circle · ~5 min</div>
         </div>
         <div class="step-time">5 min</div>
       </div>
@@ -231,7 +222,7 @@
     <div class="card-body">
       <div class="chips">
         <span class="chip green">~$6–7 total</span>
-        <span class="chip amber">Uber ~£25–35 if late / heavy bags</span>
+        <span class="chip amber">Uber ~£25–35 if late or heavy bags</span>
       </div>
     </div>
     <div class="btn-row">
@@ -239,7 +230,7 @@
     </div>
   </div>
 
-  <div class="day-header">Hotel → IAD · Friday 23 May</div>
+  <div class="day-header">Hotel → IAD · Friday 22 May</div>
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-metro">🚇</div>
@@ -259,16 +250,16 @@
       <div class="step">
         <div class="step-main">
           <div class="step-title">Metro: McPherson Sq → Metro Center → Dulles</div>
-          <div class="step-note">Blue/Orange to Metro Center, change Silver Line direction Dulles</div>
+          <div class="step-note">Blue/Orange to Metro Center, change to Silver Line direction Dulles</div>
         </div>
         <div class="step-time">~55 min</div>
       </div>
       <div class="step">
         <div class="step-main">
           <div class="step-title">Arrive Dulles · Check in DL1324</div>
-          <div class="step-note">Allow 60 min at airport before departure</div>
+          <div class="step-note">~60 min before 10:11 departure</div>
         </div>
-        <div class="step-time">~09:30</div>
+        <div class="step-time">~09:35</div>
       </div>
     </div>
   </div>
@@ -278,7 +269,7 @@
       <div class="card-icon icon-flight">✈️</div>
       <div>
         <div class="card-title">DL1324 · IAD → Atlanta</div>
-        <div class="card-time">Friday 23 May</div>
+        <div class="card-time">Friday 22 May</div>
       </div>
     </div>
     <div class="card-body">
@@ -287,9 +278,8 @@
         <tr><td class="fnum">DL1324</td><td>IAD → ATL</td><td>10:11 EDT</td><td>~11:55 EDT</td></tr>
       </table>
       <div class="chips">
-        <span class="chip">~1h 44m</span>
-        <span class="chip green">Delta Air Lines</span>
-        <span class="chip">Arrives ATL late morning</span>
+        <span class="chip">~1h 44m</span><span class="chip green">Delta Air Lines</span>
+        <span class="chip">Arrives ATL ~midday</span>
       </div>
     </div>
     <div class="btn-row">
@@ -297,24 +287,24 @@
     </div>
   </div>
 
-  <div class="day-header">Return from Atlanta · Wed 27 → Thu 28 May</div>
+  <div class="day-header">Return · Wed 27 → Thu 28 May</div>
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-flight">✈️</div>
       <div>
         <div class="card-title">Atlanta → Amsterdam → Birmingham</div>
-        <div class="card-time">Overnight flight · Arrives BHX 28 May ~12:37 BST</div>
+        <div class="card-time">Overnight · Arrives BHX Thu 28 May ~12:37 BST</div>
       </div>
     </div>
     <div class="card-body">
       <table class="ftable">
         <tr><th>Flight</th><th>Route</th><th>Dep</th><th>Arr</th></tr>
-        <tr><td class="fnum">DL074</td><td>ATL → AMS</td><td>19:45 EDT</td><td>10:40 CEST (+1)</td></tr>
+        <tr><td class="fnum">DL074</td><td>ATL → AMS</td><td>19:45 EDT</td><td>10:40 CEST +1</td></tr>
         <tr><td class="fnum">KL1045</td><td>AMS → BHX</td><td>12:25 CEST</td><td>~12:37 BST</td></tr>
       </table>
       <div class="chips">
         <span class="chip">Overnight ATL→AMS ~9h</span>
-        <span class="chip green">Arrives BHX Thu 28 May ~12:37</span>
+        <span class="chip green">BHX Thu 28 May ~12:37</span>
       </div>
     </div>
   </div>
@@ -330,22 +320,22 @@
     <div class="steps">
       <div class="step">
         <div class="step-main">
-          <div class="step-title">Customs, bags, terminal exit</div>
-          <div class="step-note">Allow 30–45 min from landing to station</div>
+          <div class="step-title">Customs, bags, exit terminal</div>
+          <div class="step-note">Allow 30–45 min from landing to platform</div>
         </div>
         <div class="step-time">~13:15</div>
       </div>
       <div class="step">
         <div class="step-main">
           <div class="step-title">Train: BHX → Wolverhampton</div>
-          <div class="step-note">Very frequent — ~4 per hour. Take next available service. ~40 min.</div>
+          <div class="step-note">~4 per hour · take next available · ~40 min</div>
         </div>
         <div class="step-time">~13:30</div>
       </div>
       <div class="step">
         <div class="step-main">
           <div class="step-title">Taxi or train: Wolverhampton → Shifnal</div>
-          <div class="step-note">Direct trains run regularly. ~15–20 min.</div>
+          <div class="step-note">Direct trains regularly · ~15–20 min</div>
         </div>
         <div class="step-time">~14:15</div>
       </div>
@@ -353,7 +343,8 @@
   </div>
 </div>
 
-<!-- ══════════════════════ HOTEL ══════════════════════ -->
+<!-- ══════════ HOTEL ══════════ -->
+
 <div id="hotel" class="section">
   <div class="hotel-box">
     <h3>🏨 Washington Plaza Hotel</h3>
@@ -363,9 +354,9 @@
   </div>
   <div class="btn-row" style="padding:8px 12px 4px">
     <a class="btn btn-maps" href="https://maps.apple.com/?address=10+Thomas+Circle+NW,Washington+DC+20005&q=Washington+Plaza+Hotel&ll=38.9062,-77.0309" target="_blank">🗺 Open in Maps</a>
-    <a class="btn btn-teal" href="https://www.washingtonplazahotel.com" target="_blank">🌐 Hotel website</a>
+    <a class="btn btn-teal" href="https://www.washingtonplazahotel.com" target="_blank">🌐 Website</a>
   </div>
-  <div class="intro">On Thomas Circle, 5 min walk from McPherson Square Metro (Blue/Orange Line). Good base for the Mall — 20 min Metro or walkable in 30–40 min.</div>
+  <div class="intro">On Thomas Circle, 5 min walk from McPherson Square Metro (Blue/Orange Line). Good central base — Mall museums ~20 min on Metro, Georgetown ~15 min Uber.</div>
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-metro">🚇</div>
@@ -383,9 +374,10 @@
   </div>
 </div>
 
-<!-- ══════════════════════ TUESDAY ══════════════════════ -->
+<!-- ══════════ TUESDAY ══════════ -->
+
 <div id="tue" class="section">
-  <div class="intro">Arrival day. You'll land ~15:35 EDT, clear customs, take the Metro — at the hotel by ~17:30. Long day. Easy evening — short walk, cold beer, no reservation needed.</div>
+  <div class="intro">Arrival day. Land ~15:35 EDT, Metro to hotel, at Washington Plaza by ~17:30. Long travel day — easy evening, no reservation needed.</div>
 
   <div class="day-header">Tuesday Evening <span>19 May</span></div>
 
@@ -394,11 +386,11 @@
       <div class="card-icon icon-hotel">🏨</div>
       <div>
         <div class="card-title">Check In · Washington Plaza</div>
-        <div class="card-time">~17:30</div>
+        <div class="card-time">~17:30 EDT</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Drop bags, freshen up. You're on Eastern Time — 5 hours behind UK. Resist the urge to sleep early or you'll be up at 3am.</p>
+      <p>Drop bags, freshen up. You're on Eastern Time — 5 hours behind UK. Resist the urge to sleep early or you'll be wide awake at 3am.</p>
     </div>
     <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?address=10+Thomas+Circle+NW,Washington+DC+20005&q=Washington+Plaza+Hotel&ll=38.9062,-77.0309" target="_blank">🗺 Hotel in Maps</a>
@@ -414,7 +406,7 @@
       </div>
     </div>
     <div class="card-body">
-      <p>1337 14th St NW · 500+ beers on tap. Outstanding bar seating for solo — pull up a stool and decompress. Shrimp and grits recommended. Opens 16:00 weekdays.</p>
+      <p>1337 14th St NW · 500+ beers on tap. Excellent bar seating for solo — pull up a stool and decompress. Opens 16:00 weekdays. Shrimp and grits on the menu but plenty of non-seafood options including excellent burgers.</p>
       <div class="chips">
         <span class="chip green">No reservation needed</span>
         <span class="chip">Bar seating</span>
@@ -422,15 +414,16 @@
       </div>
     </div>
     <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=ChurchKey&ll=38.9085,-77.0317&address=1337+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=ChurchKey+DC&ll=38.9085,-77.0317&address=1337+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
       <a class="btn btn-teal" href="https://www.churchkeydc.com" target="_blank">🌐 Website</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════ WEDNESDAY ══════════════════════ -->
+<!-- ══════════ WEDNESDAY ══════════ -->
+
 <div id="wed" class="section">
-  <div class="intro">Smithsonian Day 1. Air & Space + Natural History back-to-back. Dinner at The Hamilton — lively bar, great solo spot.</div>
+  <div class="intro">Smithsonian Day 1. Air & Space + Natural History. Dinner at Le Diplomate — French brasserie, book ahead.</div>
 
   <div class="day-header">Wednesday <span>20 May</span></div>
 
@@ -446,7 +439,7 @@
       <p>2021 14th St NW · Opens 07:00. Famous homemade pop tarts, French toast, all-day breakfast. Relaxed neighbourhood diner.</p>
     </div>
     <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=Ted%27s+Bulletin+14th+Street&ll=38.9147,-77.0322&address=2021+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Ted%27s+Bulletin+14th+Street+DC&ll=38.9147,-77.0322" target="_blank">🗺 Maps</a>
       <a class="btn btn-teal" href="https://www.tedsbulletin.com/location/14th-street/" target="_blank">🌐 Website</a>
     </div>
   </div>
@@ -460,15 +453,15 @@
       </div>
     </div>
     <div class="card-body">
-      <p>Independence Ave &amp; 6th St SW · Opens 10:00. Wright Brothers' Flyer, Apollo 11 Command Module, Spirit of St. Louis. Allow 3–4 hours.</p>
+      <p>Independence Ave &amp; 6th St SW · Opens 10:00. Wright Brothers' Flyer, Apollo 11 Command Module, Spirit of St Louis. Allow 3–4 hours.</p>
       <div class="chips">
         <span class="chip amber">📋 Book free timed entry at si.edu first</span>
-        <span class="chip green">Free</span>
+        <span class="chip green">Free entry</span>
       </div>
     </div>
     <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?q=National+Air+and+Space+Museum&ll=38.8882,-77.0198" target="_blank">🗺 Maps</a>
-      <a class="btn btn-teal" href="https://airandspace.si.edu" target="_blank">📋 Book entry</a>
+      <a class="btn btn-teal" href="https://airandspace.si.edu/visit/passes" target="_blank">📋 Book timed entry</a>
     </div>
   </div>
 
@@ -481,37 +474,41 @@
       </div>
     </div>
     <div class="card-body">
-      <p>Constitution Ave &amp; 10th St NW · Hope Diamond, dinosaurs, ocean hall. Café inside. Closes 17:30.</p>
-      <div class="chips"><span class="chip green">Free</span><span class="chip">No booking needed</span></div>
+      <p>Constitution Ave &amp; 10th St NW · Hope Diamond, dinosaurs, ocean hall. Café inside if needed. Closes 17:30.</p>
+      <div class="chips"><span class="chip green">Free entry</span><span class="chip">No booking needed</span></div>
     </div>
     <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=National+Museum+of+Natural+History&ll=38.8913,-77.0261" target="_blank">🗺 Maps</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=National+Museum+of+Natural+History+DC&ll=38.8913,-77.0261" target="_blank">🗺 Maps</a>
       <a class="btn btn-teal" href="https://naturalhistory.si.edu" target="_blank">🌐 Website</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-icon icon-food">🍽️</div>
+      <div class="card-icon icon-food">🥐</div>
       <div>
-        <div class="card-title">The Hamilton</div>
-        <div class="card-time">Dinner · ~19:00</div>
+        <div class="card-title">Le Diplomate</div>
+        <div class="card-time">Dinner · ~19:30 · Book ahead</div>
       </div>
     </div>
     <div class="card-body">
-      <p>600 14th St NW · Large menu, bar seating, live music downstairs. Seafood and steaks. Solo-friendly and lively.</p>
-      <div class="chips"><span class="chip">Bar seating</span><span class="chip">Live music</span></div>
+      <p>1601 14th St NW · Classic French brasserie. Steak frites, duck confit, onion soup. Bar seating available. About 15 min walk from the museums or short Metro/Uber.</p>
+      <div class="chips">
+        <span class="chip amber">Book in advance</span>
+        <span class="chip">Bar seating available</span>
+      </div>
     </div>
     <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=The+Hamilton+DC&ll=38.8975,-77.0322&address=600+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
-      <a class="btn btn-teal" href="https://www.thehamiltondc.com" target="_blank">🌐 Website</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Le+Diplomate+DC&ll=38.9114,-77.0317&address=1601+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
+      <a class="btn btn-teal" href="https://lediplomatedc.com" target="_blank">🌐 Reserve online</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════ THURSDAY ══════════════════════ -->
+<!-- ══════════ THURSDAY ══════════ -->
+
 <div id="thu" class="section">
-  <div class="intro">American History Museum + White House walk. Old Ebbitt for lunch — best solo bar in DC. Afternoon monuments walk ending with the Lincoln Memorial lit up at dusk.</div>
+  <div class="intro">American History Museum, White House, monuments walk, then Georgetown for the afternoon and dinner. Full but varied day — museums done by lunchtime, rest is all outdoors.</div>
 
   <div class="day-header">Thursday <span>21 May</span></div>
 
@@ -520,11 +517,11 @@
       <div class="card-icon icon-food">☕</div>
       <div>
         <div class="card-title">Founding Farmers DC</div>
-        <div class="card-time">Breakfast · ~08:00</div>
+        <div class="card-time">Breakfast · ~08:00 · 10 min walk</div>
       </div>
     </div>
     <div class="card-body">
-      <p>1924 Pennsylvania Ave NW · Opens 07:00. Farm-to-table. Excellent biscuits and blueberry pancakes. 10 min walk.</p>
+      <p>1924 Pennsylvania Ave NW · Opens 07:00. Farm-to-table American. Excellent biscuits, pancakes, eggs. Good fuel for a big day.</p>
     </div>
     <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?q=Founding+Farmers+DC&ll=38.9003,-77.0445&address=1924+Pennsylvania+Ave+NW,+Washington+DC" target="_blank">🗺 Maps</a>
@@ -537,12 +534,12 @@
       <div class="card-icon icon-museum">🇺🇸</div>
       <div>
         <div class="card-title">American History Museum</div>
-        <div class="card-time">10:00–13:00</div>
+        <div class="card-time">10:00–12:30</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Constitution Ave &amp; 14th St NW · The original Star-Spangled Banner, pop culture, First Ladies' gowns, presidents. Opens 10:00. Allow 2–3 hours.</p>
-      <div class="chips"><span class="chip green">Free</span></div>
+      <p>Constitution Ave &amp; 14th St NW · The original Star-Spangled Banner, pop culture, First Ladies' gowns, presidents. Opens 10:00. Allow 2–2.5 hours.</p>
+      <div class="chips"><span class="chip green">Free entry</span><span class="chip">No booking needed</span></div>
     </div>
     <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?q=National+Museum+of+American+History&ll=38.8913,-77.0301" target="_blank">🗺 Maps</a>
@@ -555,11 +552,11 @@
       <div class="card-icon icon-walk">🏛️</div>
       <div>
         <div class="card-title">White House Exterior</div>
-        <div class="card-time">~13:00 · 5 min from Old Ebbitt Grill</div>
+        <div class="card-time">~12:45 · Walk north from museum · 10 min</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Pennsylvania Ave NW between 15th &amp; 17th St · View from the iron fence. Classic photo op. 15 min. Interior requires advance congressional tickets.</p>
+      <p>Pennsylvania Ave NW between 15th &amp; 17th St · Classic photo op at the iron fence. Allow 15 min. Interior requires advance congressional tickets — exterior is the standard visit.</p>
       <div class="chips"><span class="chip green">Free</span></div>
     </div>
     <div class="btn-row">
@@ -569,86 +566,86 @@
 
   <div class="card">
     <div class="card-header">
-      <div class="card-icon icon-food">🦪</div>
-      <div>
-        <div class="card-title">Old Ebbitt Grill</div>
-        <div class="card-time">Lunch · ~13:30</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p>675 15th St NW · Historic DC saloon. Four bars — pull up a stool. Excellent oysters and crab cakes. Happy hour oyster deals from 15:00 if you linger.</p>
-      <div class="chips"><span class="chip green">Best solo lunch in DC</span><span class="chip">Happy hour 15:00</span></div>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=Old+Ebbitt+Grill&ll=38.8979,-77.0332&address=675+15th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
-      <a class="btn btn-teal" href="https://www.ebbitt.com" target="_blank">🌐 Website</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
       <div class="card-icon icon-walk">🌅</div>
       <div>
-        <div class="card-title">Washington Monument + WWII Memorial</div>
-        <div class="card-time">~15:30 · Walk west along the Mall</div>
+        <div class="card-title">Mall Monuments Walk</div>
+        <div class="card-time">~13:15–15:30 · Grab and go if peckish — food trucks on the Mall</div>
       </div>
     </div>
     <div class="card-body">
-      <p>Walk west from Old Ebbitt. Washington Monument standing at the base is worth it even if you don't go up. Then 5 min further to the WWII Memorial — fountains, state pillars, often overlooked but genuinely moving.</p>
+      <p>Walk west from the White House along the Mall. <strong>Washington Monument</strong> first — worth standing at the base even without going up. Then 5 min to the <strong>WWII Memorial</strong> — fountains and state pillars, often missed but moving. Then west along the Reflecting Pool to <strong>Lincoln Memorial</strong>. Immediately right: <strong>Vietnam Veterans Memorial</strong> — 58,000 names on black granite. 5 min south: <strong>Korea War Veterans Memorial</strong> — ghostly steel soldiers.</p>
+      <p style="margin-top:6px">Allow ~2 hours for the full walk at a relaxed pace. Food trucks and kiosks line the Mall if you need something to eat on the move.</p>
       <div class="chips">
-        <span class="chip green">Exterior free</span>
-        <span class="chip amber">Inside: book at recreation.gov</span>
+        <span class="chip green">All free · All open 24h</span>
+        <span class="chip amber">Washington Monument inside: book at recreation.gov</span>
       </div>
     </div>
     <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?q=Washington+Monument&ll=38.8895,-77.0353" target="_blank">🗺 Monument</a>
-      <a class="btn btn-teal" href="https://www.recreation.gov/ticket/facility/234641" target="_blank">🎟 Book inside visit</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-icon icon-walk">🌙</div>
-      <div>
-        <div class="card-title">Lincoln + Vietnam + Korea Memorials</div>
-        <div class="card-time">~18:30 · Open 24 hours · Free</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <p>Walk west along the Reflecting Pool to Lincoln Memorial. Then immediately right: Vietnam Veterans Memorial — 58,000 names on black granite, one of the most affecting things in DC. Then 5 min south: Korea War Veterans Memorial — steel soldiers in a field.</p>
-      <p style="margin-top:6px">Allow 90 min for all three. Late May evenings are warm with long daylight — this is the best time to do it.</p>
-      <div class="chips"><span class="chip green">All free · Open 24h</span><span class="chip">Quieter after 19:00</span></div>
-    </div>
-    <div class="btn-row">
       <a class="btn btn-maps" href="https://maps.apple.com/?q=Lincoln+Memorial&ll=38.8893,-77.0502" target="_blank">🗺 Lincoln</a>
       <a class="btn btn-maps" href="https://maps.apple.com/?q=Vietnam+Veterans+Memorial&ll=38.8921,-77.0479" target="_blank">🗺 Vietnam Wall</a>
+      <a class="btn btn-teal" href="https://www.recreation.gov/ticket/facility/234641" target="_blank">🎟 Monument tickets</a>
     </div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-icon icon-food">🥐</div>
+      <div class="card-icon icon-walk">🏘️</div>
       <div>
-        <div class="card-title">Le Diplomate</div>
-        <div class="card-time">Dinner · ~20:30 · Book ahead</div>
+        <div class="card-title">Georgetown</div>
+        <div class="card-time">~15:45–19:00 · Uber from Lincoln Memorial ~10 min</div>
       </div>
     </div>
     <div class="card-body">
-      <p>1601 14th St NW · Classic French brasserie. Steak frites, onion soup. Bar seating available. After the monuments walk you'll have earned it.</p>
-      <div class="chips"><span class="chip amber">Book in advance</span><span class="chip">Bar seating available</span></div>
+      <p>Take an Uber from Lincoln Memorial rather than walking — you'll have earned it by then. <strong>Georgetown Waterfront Park</strong> is right there for a stroll along the Potomac. Then <strong>M Street &amp; Wisconsin Ave</strong> for a browse. <strong>The Exorcist Steps</strong> (36th St at Prospect St NW) if you fancy a quick detour — five minutes and a decent photo. <strong>Dumbarton Oaks gardens</strong> close at 18:00 in May if you want greenery.</p>
+      <div class="chips">
+        <span class="chip">Uber from Lincoln ~$10</span>
+        <span class="chip green">Cobbled streets · Potomac views</span>
+      </div>
     </div>
     <div class="btn-row">
-      <a class="btn btn-maps" href="https://maps.apple.com/?q=Le+Diplomate&ll=38.9114,-77.0317&address=1601+14th+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
-      <a class="btn btn-teal" href="https://lediplomatedc.com" target="_blank">🌐 Reserve online</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Georgetown+Waterfront+Park+DC&ll=38.9021,-77.0608" target="_blank">🗺 Waterfront</a>
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Exorcist+Steps+Georgetown+DC&ll=38.9066,-77.0719" target="_blank">🗺 Exorcist Steps</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-food">🥩</div>
+      <div>
+        <div class="card-title">Farmers Fishers Bakers</div>
+        <div class="card-time">Dinner · ~19:15 · Georgetown Waterfront</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>3000 K St NW · Right on the Potomac waterfront. Same group as Founding Farmers. Good burgers, rotisserie chicken, ribs — solid meat-focused menu. Lively atmosphere, bar seating, no stuffiness. ~$20–30 for a main. Nice way to end the day on the water.</p>
+      <div class="chips">
+        <span class="chip green">Waterfront setting</span>
+        <span class="chip">Bar seating</span>
+        <span class="chip">~$20–30 mains</span>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Farmers+Fishers+Bakers+DC&ll=38.9018,-77.0593&address=3000+K+St+NW,+Washington+DC" target="_blank">🗺 Maps</a>
+      <a class="btn btn-teal" href="https://www.wearefoundingfarmers.com/location/ffb/" target="_blank">🌐 Website</a>
+    </div>
+  </div>
+
+  <div class="alt-box">
+    <strong>Alternative: Martin's Tavern</strong> — if you fancy something with more history and atmosphere. Georgetown institution since 1933. Classic American — burgers, steaks, pot roast. Dark wood, proper booths, JFK used to drink here. ~$25–35 mains. See how you feel on the day.
+    <div class="btn-row" style="padding:8px 0 0">
+      <a class="btn btn-maps" href="https://maps.apple.com/?q=Martin%27s+Tavern+Georgetown+DC&ll=38.9110,-77.0717&address=1264+Wisconsin+Ave+NW,+Washington+DC" target="_blank">🗺 Maps</a>
+      <a class="btn btn-grey" href="https://www.martinstavern.com" target="_blank">🌐 Website</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════ FRIDAY ══════════════════════ -->
-<div id="fri" class="section">
-  <div class="intro">DL1324 departs 10:11 EDT — comfortable morning departure. Leave hotel by 08:30, Metro to Dulles, in Atlanta by lunchtime.</div>
+<!-- ══════════ FRIDAY ══════════ -->
 
-  <div class="day-header">Friday Morning <span>23 May</span></div>
+<div id="fri" class="section">
+  <div class="intro">DL1324 departs 10:11 EDT — civilised morning departure. Leave hotel by 08:30, Metro to Dulles, in Atlanta by lunchtime.</div>
+
+  <div class="day-header">Friday Morning <span>22 May</span></div>
 
   <div class="card">
     <div class="card-header">
@@ -659,7 +656,7 @@
       </div>
     </div>
     <div class="card-body">
-      <p>Hotel breakfast buffet ($18) if you have time, or grab coffee and something airside. Check out by 08:30 and head to McPherson Square.</p>
+      <p>Hotel breakfast buffet ($18) or grab coffee and something airside. Check out by 08:30 and head to McPherson Square.</p>
     </div>
   </div>
 
@@ -668,20 +665,20 @@
       <div class="card-icon icon-metro">🚇</div>
       <div>
         <div class="card-title">Metro: McPherson Sq → Dulles</div>
-        <div class="card-time">Depart ~08:35 · Allow 55 min</div>
+        <div class="card-time">Depart ~08:35 · ~55 min</div>
       </div>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-main">
-          <div class="step-title">Walk to McPherson Square station</div>
-          <div class="step-note">5 min south on 14th St</div>
+          <div class="step-title">Walk south to McPherson Square</div>
+          <div class="step-note">5 min on 14th St</div>
         </div>
         <div class="step-time">08:35</div>
       </div>
       <div class="step">
         <div class="step-main">
-          <div class="step-title">Blue/Orange to Metro Center → Silver Line to Dulles</div>
+          <div class="step-title">Blue/Orange → Metro Center → Silver Line → Dulles</div>
           <div class="step-note">Direction: Washington Dulles · ~55 min total</div>
         </div>
         <div class="step-time">08:40</div>
@@ -689,7 +686,7 @@
       <div class="step">
         <div class="step-main">
           <div class="step-title">Arrive Dulles · Check in DL1324</div>
-          <div class="step-note">~60 min before 10:11 departure</div>
+          <div class="step-note">~60 min before 10:11 departure · comfortable</div>
         </div>
         <div class="step-time">~09:35</div>
       </div>
@@ -705,10 +702,10 @@
       </div>
     </div>
     <div class="card-body">
-      <p>Delta Air Lines · ~1h 44m · Terminal S arrival in Atlanta. In Alpharetta by lunchtime.</p>
+      <p>Delta Air Lines · ~1h 44m · Arrives Atlanta Hartsfield ~11:55. Terminal S arrival. In Alpharetta by early afternoon.</p>
       <div class="chips">
         <span class="chip green">~1h 44m</span>
-        <span class="chip">ATL Terminal S</span>
+        <span class="chip">ATL Terminal S arrival</span>
         <span class="chip">Alpharetta ~30 min from ATL</span>
       </div>
     </div>
@@ -718,10 +715,11 @@
   </div>
 </div>
 
-<!-- ══════════════════════ TIPS ══════════════════════ -->
+<!-- ══════════ TIPS ══════════ -->
+
 <div id="tips" class="section">
 
-  <div class="day-header">Before You Travel — Book These</div>
+  <div class="day-header">Before You Travel</div>
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-tip">📋</div>
@@ -734,23 +732,23 @@
       </div>
       <div class="check-item">
         <input type="checkbox" id="c2">
-        <label for="c2"><strong>Le Diplomate dinner</strong> — book Thursday 21 May ~20:30 at <a href="https://lediplomatedc.com" target="_blank">lediplomatedc.com</a></label>
+        <label for="c2"><strong>Le Diplomate dinner</strong> — book Wed 20 May ~19:30 at <a href="https://lediplomatedc.com" target="_blank">lediplomatedc.com</a></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c3">
-        <label for="c3"><strong>SmarTrip card</strong> — add to Apple/Google Wallet before arriving. Used on DC Metro.</label>
+        <label for="c3"><strong>Farmers Fishers Bakers</strong> — book Thu 21 May ~19:15 at <a href="https://www.wearefoundingfarmers.com/location/ffb/" target="_blank">wearefoundingfarmers.com</a></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c4">
-        <label for="c4"><strong>Washington Monument (inside)</strong> — optional. Book at <a href="https://www.recreation.gov/ticket/facility/234641" target="_blank">recreation.gov</a></label>
+        <label for="c4"><strong>SmarTrip card</strong> — add to Apple/Google Wallet before flying. Used on DC Metro.</label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c5">
-        <label for="c5"><strong>Confirm outbound train</strong> — check 06:14 Wolverhampton depart on <a href="https://www.nationalrail.co.uk/journey-planner/" target="_blank">National Rail</a> closer to 19 May</label>
+        <label for="c5"><strong>Washington Monument inside</strong> — optional views. Book at <a href="https://www.recreation.gov/ticket/facility/234641" target="_blank">recreation.gov</a></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c6">
-        <label for="c6"><strong>Notify bank</strong> of US travel dates</label>
+        <label for="c6"><strong>Confirm outbound train</strong> — check 06:14 Wolverhampton departure on <a href="https://www.nationalrail.co.uk/journey-planner/" target="_blank">National Rail</a></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c7">
@@ -758,22 +756,26 @@
       </div>
       <div class="check-item">
         <input type="checkbox" id="c8">
-        <label for="c8"><strong>Offline Maps</strong> — download DC map in Apple Maps before flying</label>
+        <label for="c8"><strong>Notify bank</strong> of US travel dates</label>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="c9">
+        <label for="c9"><strong>Download DC offline map</strong> in Apple Maps before flying</label>
       </div>
     </div>
   </div>
 
-  <div class="day-header">DC Practical Tips</div>
+  <div class="day-header">Practical Tips</div>
 
   <div class="card">
     <div class="card-header">
       <div class="card-icon icon-tip">💡</div>
-      <div><div class="card-title">Getting Around</div></div>
+      <div><div class="card-title">Getting Around DC</div></div>
     </div>
     <div class="card-body">
-      <p><strong>Metro</strong> — Clean, safe, simple. SmarTrip works like Oyster. ~$2–7 per journey. Silver Line is your Dulles connection.</p>
-      <p><strong>Walking</strong> — The Mall is deceptively long. Allow 15–20 min between monuments. Comfortable shoes are non-negotiable.</p>
-      <p><strong>Uber/Lyft</strong> — Fine for evenings or when feet give out. Cheaper than NYC.</p>
+      <p><strong>Metro</strong> — Clean, safe, simple. SmarTrip works like Oyster. ~$2–7 per journey. Silver Line connects to Dulles.</p>
+      <p><strong>Walking</strong> — The Mall is deceptively long. Allow 15–20 min between monuments. Comfortable shoes non-negotiable for museum and monument days.</p>
+      <p><strong>Uber/Lyft</strong> — Best for Georgetown (no Metro station). Also good for evenings when feet give out. Cheaper than NYC.</p>
     </div>
   </div>
 
@@ -783,7 +785,7 @@
       <div><div class="card-title">Late May Weather</div></div>
     </div>
     <div class="card-body">
-      <p>Expect 22–28°C and humid. Comfortable in the morning, sticky by afternoon. Sunscreen, water bottle, comfortable shoes essential for Mall days. Evenings are pleasant — ideal for the monuments walk.</p>
+      <p>Expect 22–28°C and humid. Comfortable in the morning, sticky by afternoon. Sunscreen and a water bottle essential on Mall days. Evenings are pleasant — perfect for the monuments walk.</p>
     </div>
   </div>
 
@@ -797,7 +799,7 @@
   </div>
 
   <div style="text-align:center;padding:16px;font-size:12px;color:var(--mid)">
-    Prepared May 2026 · Times scheduled and subject to change
+    Gregg Hudson · Prepared May 2026 · Times scheduled and subject to change
   </div>
 </div>
 
@@ -817,5 +819,6 @@ document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
   });
 });
 </script>
+
 </body>
 </html>
